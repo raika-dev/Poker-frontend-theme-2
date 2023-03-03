@@ -1,0 +1,565 @@
+@import url("https://fonts.cdnfonts.com/css/cera-round-pro");
+body {
+  margin: 0px;
+  overflow: hidden;
+  background-color: #0a0f1d;
+  font-size: 16px;
+  font-family: "Cera Round Pro", sans-serif;
+  box-sizing: border-box;
+  user-select: none;
+}
+button {
+  outline: 0;
+  cursor: pointer;
+  border: 0;
+}
+input {
+  border: 0;
+  outline: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+body canvas {
+  width: 100%;
+  height: 100%;
+}
+div#container {
+  height: 100vh;
+  overflow: auto;
+}
+header {
+  background-color: #161b27;
+  display: flex;
+  align-items: center;
+  color: white;
+  padding: 16px 32px;
+}
+header img.logo {
+  width: 200px;
+}
+header div.action {
+  margin-left: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header div.action .info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff17;
+  padding: 8px;
+  height: 24px;
+  border-radius: 80px 0px 0px 80px;
+  gap: 4px;
+  padding-right: 10px;
+  margin-right: -6px;
+}
+header div.profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header div.profile div.line {
+  width: 40px;
+  height: 0px;
+  border: 1px solid #1e2436;
+  transform: rotate(90deg);
+}
+header div.profile img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: white;
+}
+header div.profile svg {
+  margin-left: 13px;
+  margin-top: 7px;
+}
+main {
+  padding: 48px 20px;
+  color: #7e8097;
+}
+main div.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+main div.tabs {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  gap: 24px;
+  background: #161b27;
+  border: 3px solid #1e2436;
+  border-radius: 8px;
+}
+main div.tab {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  color: #7e8097;
+  cursor: pointer;
+  padding: 10px;
+}
+main div.tab.active {
+  background-color: #3ce5b5;
+  border-radius: 8px;
+  color: #0e101b;
+}
+main button#btnCreate {
+  background-color: #3ce5b5;
+  border-radius: 8px;
+  color: #0e101b;
+  padding: 10px;
+  cursor: pointer;
+}
+main div.tab-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  margin-top: 24px;
+  width: 100%;
+}
+main div.tab-container div.room-table {
+  width: 100%;
+  padding: 16px;
+  border: 3px solid #1e2436;
+  border-radius: 8px;
+  background: #161b27;
+}
+main div.room-table table {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+}
+main div.room-table table th {
+  font-weight: 500;
+  color: #7e8097;
+}
+main div.room-table table td,
+main div.room-table table th {
+  padding: 15px 8px;
+  font-size: 14px;
+}
+main div.room-table table td {
+  color: #cccccc;
+}
+main div.room-table table tbody tr:nth-child(odd) {
+  background-color: #0a0f1d;
+}
+main div.room-table table tbody tr {
+  cursor: pointer;
+}
+main div.room-table table tbody tr.active td {
+  color: #3ce5b5;
+}
+
+main div.tab-container div.room-info {
+  width: 35%;
+  padding: 24px;
+  border: 3px solid #1e2436;
+  border-radius: 8px;
+  background: #161b27;
+}
+main div.room-info .info-header {
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+main div.room-info .info-body {
+  font-size: 16px;
+  color: #fbfbfbb2;
+  line-height: 20px;
+}
+main div.room-info .info-tabs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main div.room-info .info-tab {
+  width: 50%;
+  color: #7e8097;
+  text-align: center;
+  padding: 14px;
+  border-bottom: 3px solid #1e2436;
+  cursor: pointer;
+}
+main div.room-info .info-tab.active {
+  color: #3ce5b5;
+  border-color: #3ce5b5;
+}
+main div.room-info .info-tab-container {
+  padding: 32px 0;
+  border-bottom: 3px solid #1e2436;
+}
+main .button-join {
+  border: 1px solid #3ce5b5;
+  background-color: transparent;
+  border-radius: 4px;
+  padding: 8px 20px;
+  color: #00e1ff;
+  cursor: pointer;
+  transition: 0.5s;
+}
+main .button-join:hover {
+  background-color: #3ce5b5;
+  color: #020204;
+}
+div.game-ui button {
+  font-family: "Cera Round Pro", sans-serif;
+  background: transparent;
+  background-size: 100% 100%;
+  border: none;
+  outline: none;
+}
+div.game-ui .action {
+  position: fixed;
+  bottom: -10vw;
+  right: 0;
+  transition: 0.2s;
+}
+
+div.game-ui .action.active {
+  bottom: 0;
+}
+div.game-ui .action-buttons {
+  background-image: url("../public/images/buttons.png");
+  width: 40vw;
+  height: 3.8vw;
+  padding: 0.5vw 1vw 0.5vw 2vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4vw;
+  background-size: 100% 100%;
+}
+div.game-ui .action-buttons button {
+  color: white;
+  font-size: 1.6vw;
+  font-weight: 700;
+  cursor: pointer;
+  width: 33%;
+  background-image: url("../public/images/button.png");
+  height: 3.2vw;
+}
+div.game-ui .action-spinner {
+  margin-left: 12.9vw;
+  height: 5vw;
+  padding-left: 1vw;
+  position: relative;
+  background-image: url("../public/images/spinner-back.png");
+  background-size: 100% 100%;
+}
+div.game-ui .action-spinner .spinner-back {
+  width: 20.4vw;
+  height: 1vw;
+  top: 2.2vw;
+  left: 7.2vw;
+}
+div.game-ui .action-spinner .spinner-track-0 {
+  border-radius: 0.5vw;
+  height: 0.7vw;
+  background-color: #00e1ff;
+}
+div.game-ui .action-spinner .spinner-track-1 {
+  border-radius: 0.5vw;
+  height: 0.7vw;
+  background-color: #0a0f1d;
+}
+div.game-ui .action-spinner .spinner-ball {
+  margin-top: -1vw;
+  border: 0;
+  outline: 0;
+  width: 2.5vw;
+  height: 2.5vw;
+  background-image: url("../public/images/spinner-ball.png");
+  background-size: 100% 100%;
+  cursor: pointer;
+}
+div.game-ui .action-spinner .spinner-text {
+  user-select: none;
+  position: absolute;
+  top: 1.5vw;
+  left: 1.6vw;
+  color: white;
+  font-weight: 500;
+  font-size: 1.7vw;
+  text-align: right;
+  width: 5.4vw;
+}
+
+div.game-ui .navbar {
+  background-image: url("../public/images/nav.png");
+  width: 100%;
+  height: 3vw;
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  background-size: 100% 100%;
+}
+div.game-ui .navbar #btnMenu {
+  background-image: url("../public/images/btn-menu.png");
+  margin: 0 2vw;
+  width: 2vw;
+  height: 1.4vw;
+}
+div.game-ui .navbar #btnSetting {
+  background-image: url("../public/images/btn-setting.png");
+  margin-left: auto;
+  margin-right: 2vw;
+  width: 1.6vw;
+  height: 1.6vw;
+}
+#btnChip {
+  background-image: url("../public/images/btn-chip.png");
+
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 6vw;
+  height: 8.4vw;
+}
+#btnChat {
+  background-image: url("../public/images/btn-chat.png");
+
+  position: fixed;
+  left: 1vw;
+  bottom: 1vw;
+  width: 6vw;
+  height: 5vw;
+}
+#btnLeave {
+  background-image: url("../public/images/btn-leave.png");
+
+  position: fixed;
+  right: 2vw;
+  top: 4vw;
+  width: 4vw;
+  height: 3.5vw;
+}
+
+div.ReactModal__Overlay {
+  background-color: #0a0f1de5 !important;
+}
+div.table-modal.ReactModal__Content {
+  background: #161b27 !important;
+  border: 3px solid #1e2436 !important;
+  color: #fbfbfbe0 !important;
+  width: 40%;
+  inset: auto !important;
+  margin: auto;
+  margin-top: 10vh;
+  position: relative !important;
+  border-radius: 8px !important;
+  padding: 2vw;
+}
+div.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+div.modal-title {
+  font-size: 2.5vw;
+  margin-left: 1.2vw;
+}
+div.modal-times {
+  margin-top: -1.4vw;
+  color: #7e8097;
+  font-size: 2.5vw;
+}
+div.modal-body {
+  padding: 20px 0;
+  border-top: 3px solid #1e2436;
+}
+div.modal-body input {
+  background: #1c2230;
+  border: 1px solid #1e2436;
+  border-radius: 4px;
+  padding: 0.6vw 1vw 0.5vw;
+  font-size: 1vw;
+  margin-bottom: 1vw;
+  color: #7e8097;
+  transition: 0.5s;
+}
+div.modal-body input:focus {
+  border-color: #3ce5b5;
+}
+div.modal-body input.error {
+  border: 1px solid tomato;
+}
+.buy-in-slider {
+  margin: 1vw 0 1.8vw;
+}
+.buy-in-slider .slider-thumb {
+  width: 0.8vw;
+  height: 0.8vw;
+  border-radius: 50%;
+  background-color: #3ce5b5;
+  border: 0.5vw solid #131524;
+  cursor: pointer;
+  margin-top: -0.5vw;
+  position: relative;
+}
+.buy-in-slider .slider-track {
+  background-color: #1c2230;
+  border: 1px solid #1e2436;
+  height: 0.5vw;
+  border-radius: 0.4vw;
+}
+.buy-in-slider .slider-track-0 {
+  background-color: #3ce5b5;
+}
+div.d-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+label {
+  font-size: 1vw;
+  color: #868fa0;
+  display: block;
+  margin-bottom: 0.2vw;
+}
+div.buy-in {
+  display: flex;
+  align-items: flex-start;
+  gap: 2vw;
+}
+div.buy-in div.buy-in-slider {
+  width: 70%;
+}
+div.buy-in input {
+  width: 30%;
+}
+div.stack {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2vw;
+}
+div.stack div {
+  width: 50%;
+}
+div.stack div input {
+  display: block;
+}
+
+div.modal-footer button {
+  width: 100%;
+  background: #3ce5b5;
+  border-radius: 4px;
+  font-size: 1.2vw;
+  padding: 0.8vw 1.4vw;
+  color: #020204;
+  margin-bottom: 10px;
+}
+div.error-message {
+  color: tomato;
+}
+div.custom-select-container {
+  position: relative;
+}
+div.selected-text {
+  background: #1c2230;
+  border: 1px solid #1e2436;
+  border-radius: 4px;
+  padding: 0.6vw 1vw 0.5vw;
+  font-size: 1vw;
+  margin-bottom: 1vw;
+  color: #7e8097;
+  transition: 0.5s;
+  cursor: pointer;
+}
+div.selected-text.active {
+  border-color: #3ce5b5;
+}
+
+ul.select-options {
+  position: absolute;
+  color: #7e8097;
+  background: #293142;
+  z-index: 2;
+  width: 100%;
+  box-sizing: border-box;
+  top: 2vw;
+  border-radius: 4px;
+  list-style: none;
+  padding: 1vw;
+}
+
+li.custom-select-option {
+  font-size: 1vw;
+  padding: 0.6vw 1vw 0.5vw;
+  cursor: pointer;
+  transition: 0.3s;
+}
+li.custom-select-option:hover {
+  color: #3ce5b5;
+}
+div.buy-in-modal.ReactModal__Content {
+  background: url("../public/images/modal-back.png");
+  background-size: 100% 100%;
+  width: 40vw;
+  height: 18vw;
+  inset: auto !important;
+  margin: auto;
+  margin-top: 15vh;
+  position: relative !important;
+  border-radius: 0px !important;
+}
+div.buy-in-modal.ReactModal__Content .buyin-slider {
+  top: 8.4vw;
+  left: 2.8vw;
+  width: 21.6vw;
+}
+
+div.buy-in-modal .slider-thumb {
+  background-image: url("../public/images/spinner-ball.png");
+  width: 2vw;
+  height: 2vw;
+  background-size: 100% 100%;
+  cursor: pointer;
+  top: -0.4vw;
+}
+div.buy-in-modal .slider-track {
+  background-color: #1c2230;
+  border: 1px solid #1e2436;
+  height: 1vw;
+  border-radius: 0.4vw;
+}
+div.buy-in-modal .slider-track-0 {
+  background-color: #3ce5b5;
+}
+div.buy-in-modal #btnStart {
+  position: absolute;
+  background: none;
+  background-image: url("../public/images/modal-ok.png");
+  background-size: 100% 100%;
+  width: 3vw;
+  height: 3vw;
+  right: 6.5vw;
+  bottom: 1.5vw;
+}
+div.buy-in-modal #btnCancel {
+  position: absolute;
+  background: none;
+  background-image: url("../public/images/modal-cancel.png");
+  background-size: 100% 100%;
+  width: 3vw;
+  height: 3vw;
+  right: 2.5vw;
+  bottom: 1.5vw;
+}
+div.buy-in-modal .value-text {
+  margin-top: 2.5vw;
+  color: white;
+  font-size: 1.6vw;
+  text-align: center;
+}
