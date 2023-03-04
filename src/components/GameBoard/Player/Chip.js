@@ -139,13 +139,13 @@ const Chip = (props) => {
     if (animationState.current == constAnimations.chip.bet) {
       pos = {
         x: animation(
-          convertXX(constPositions.players[position].avatar.x + 77, unit),
+          convertXX(constPositions.players[position].avatar.x, unit),
           convertXX(constPositions.players[position].chip.x, unit),
           constGame.time_chip_bet,
           timer.current
         ),
         y: animation(
-          convertYY(constPositions.players[position].avatar.y + 120, unit),
+          convertYY(constPositions.players[position].avatar.y, unit),
           convertYY(constPositions.players[position].chip.y, unit),
           constGame.time_chip_bet,
           timer.current
@@ -178,14 +178,14 @@ const Chip = (props) => {
       pos = {
         x: animation(
           convertXX(constPositions.pot.x, unit),
-          convertXX(constPositions.players[position].avatar.x + 77, unit),
+          convertXX(constPositions.players[position].avatar.x, unit),
           constGame.time_chip_reward,
           timer.current,
           5
         ),
         y: animation(
           convertYY(constPositions.pot.y, unit),
-          convertYY(constPositions.players[position].avatar.y + 120, unit),
+          convertYY(constPositions.players[position].avatar.y, unit),
           constGame.time_chip_reward,
           timer.current,
           5

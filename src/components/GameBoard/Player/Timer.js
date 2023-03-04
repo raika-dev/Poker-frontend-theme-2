@@ -50,11 +50,26 @@ const Timer = (props) => {
       {playerState == gameStates.active && (
         <Sprite
           image={"time12"}
+          anchor={0.5}
           {...motion}
-          x={convertXX(constPositions.players[position].avatar.x, unit)}
-          y={convertYY(constPositions.players[position].avatar.y, unit)}
-          width={convertX(70, unit)}
-          height={convertY(70, unit)}
+          x={convertXX(
+            constPositions.players[position].avatar.x -
+              constPositions.players[position].avatar.w / 2,
+            unit
+          )}
+          y={convertYY(
+            constPositions.players[position].avatar.y -
+              constPositions.players[position].avatar.h / 2,
+            unit
+          )}
+          width={convertX(
+            constPositions.players[position].avatar.w / 1.5,
+            unit
+          )}
+          height={convertY(
+            constPositions.players[position].avatar.h / 1.5,
+            unit
+          )}
         ></Sprite>
       )}
     </>

@@ -74,7 +74,9 @@ const Card = (props) => {
         x: animation(
           convertXX(constPositions.players[dealer].avatar.x, unit),
           convertXX(
-            constPositions.players[position].information.x + 70 * id + 15,
+            constPositions.players[position].information.x +
+              constPositions.players[position].card.i * id +
+              constPositions.players[position].card.x,
             unit
           ),
           constGame.time_card_move,
@@ -104,11 +106,15 @@ const Card = (props) => {
       pos = {
         x: animation(
           convertXX(
-            constPositions.players[position].information.x + 70 * id + 15,
+            constPositions.players[position].information.x +
+              constPositions.players[position].card.i * id +
+              constPositions.players[position].card.x,
             unit
           ),
           convertXX(
-            constPositions.players[position].information.x + 70 * id + 15,
+            constPositions.players[position].information.x +
+              constPositions.players[position].card.i * id +
+              constPositions.players[position].card.x,
             unit
           ),
           constGame.time_card_raise,
@@ -116,7 +122,11 @@ const Card = (props) => {
         ),
         y: animation(
           convertYY(constPositions.players[position].information.y, unit),
-          convertYY(constPositions.players[position].information.y - 100, unit),
+          convertYY(
+            constPositions.players[position].information.y +
+              constPositions.players[position].card.y,
+            unit
+          ),
           constGame.time_card_raise,
           timer.current
         ),
@@ -129,11 +139,14 @@ const Card = (props) => {
     else if (animationState.current == constAnimations.card.idle)
       pos = {
         x: convertXX(
-          constPositions.players[position].information.x + 70 * id + 15,
+          constPositions.players[position].information.x +
+            constPositions.players[position].card.i * id +
+            constPositions.players[position].card.x,
           unit
         ),
         y: convertYY(
-          constPositions.players[position].information.y - 100,
+          constPositions.players[position].information.y +
+            constPositions.players[position].card.y,
           unit
         ),
         alpha: gameState == gameStates.preWaiting ? 0 : 1,
@@ -157,9 +170,10 @@ const Card = (props) => {
 
   return (
     <Sprite
+      anchor={0.5}
       image="card-back"
-      width={convertX(84, unit)}
-      height={convertY(118, unit)}
+      width={convertX(constPositions.players[position].card.w, unit)}
+      height={convertY(constPositions.players[position].card.h, unit)}
       {...motionCard}
     ></Sprite>
   );

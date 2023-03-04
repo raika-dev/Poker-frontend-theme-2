@@ -91,24 +91,10 @@ const GameUI = () => {
                 myPosition > -1 &&
                 gameState !== gameStates.join &&
                 gameState === gameStates.active
-                  ? "action active"
-                  : "action"
+                  ? "action"
+                  : "action active"
               }
             >
-              <div className="action-spinner">
-                <div className="spinner-text">{spinnerValue}</div>
-                <ReactSlider
-                  className="spinner-back"
-                  thumbClassName="spinner-ball"
-                  trackClassName="spinner-track"
-                  value={Number(spinnerValue)}
-                  min={0}
-                  max={stack + betAmount}
-                  onChange={(e) => {
-                    handleSpinner(e);
-                  }}
-                />
-              </div>
               <div className={"action-buttons"}>
                 <button id="btnFold" onClick={handleFold}>
                   FOLD
@@ -136,16 +122,33 @@ const GameUI = () => {
                     : "RAISE"}
                 </button>
               </div>
+              <div className="action-spinner">
+                <ReactSlider
+                  className="spinner-back"
+                  thumbClassName="spinner-ball"
+                  trackClassName="spinner-track"
+                  value={Number(spinnerValue)}
+                  orientation="vertical"
+                  invert
+                  min={0}
+                  max={stack + betAmount}
+                  onChange={(e) => {
+                    handleSpinner(e);
+                  }}
+                />
+              </div>
             </div>
 
-            <div className="navbar">
-              <div>{unit}</div>
-              <button id="btnSetting"></button>
-              <button id="btnMenu"></button>
-            </div>
-            <button id="btnLeave"></button>
+            <div className="spinner-text">{spinnerValue}</div>
+            <button
+              id="btnLeave"
+              onClick={() => {
+                window.location.href = "/";
+              }}
+            ></button>
+            <button id="btnSetting"></button>
             <button id="btnChat"></button>
-            <button id="btnChip"></button>
+            {/* <button id="btnChip"></button> */}
           </div>
           <Modal
             className="buy-in-modal"

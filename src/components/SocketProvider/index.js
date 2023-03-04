@@ -9,7 +9,7 @@ import {
   setGameState,
 } from "../../store/slices/gameSlice";
 
-const socket = io("http://192.168.112.92:5000");
+const socket = io("localhost:5000");
 export const socketHooks = {
   emitJoinGame: (data) => {
     socket.emit("joinGame", data);
